@@ -7,9 +7,9 @@ LABEL com.github.containers.toolbox="true" \
 
 # Copy the setup scripts and package list
 COPY ../scripts/fedora.sh /
-COPY ../scripts/distrobox-shims.sh /
+COPY ../scripts/toolbox-shims.sh /
 COPY ../packages/fedora.packages /
 
 # Run the setup scripts
-RUN chmod +x fedora.sh distrobox-shims.sh && /fedora.sh
-RUN rm /fedora.sh /distrobox-shims.sh /fedora.packages
+RUN chmod +x fedora.sh toolbox-shims.sh && /fedora.sh
+RUN rm /fedora.sh /toolbox-shims.sh /fedora.packages

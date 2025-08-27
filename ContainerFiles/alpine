@@ -7,9 +7,9 @@ LABEL com.github.containers.toolbox="true" \
 
 # Copy the setup scripts and package list
 COPY ../scripts/alpine.sh /
-COPY ../scripts/distrobox-shims.sh /
+COPY ../scripts/toolbox-shims.sh /
 COPY ../packages/alpine.packages /
 
 # Run the setup scripts
-RUN chmod +x alpine.sh distrobox-shims.sh && /alpine.sh
-RUN rm /alpine.sh /distrobox-shims.sh /alpine.packages
+RUN chmod +x alpine.sh toolbox-shims.sh && /alpine.sh
+RUN rm /alpine.sh /toolbox-shims.sh /alpine.packages

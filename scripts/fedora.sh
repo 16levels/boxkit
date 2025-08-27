@@ -1,7 +1,7 @@
 #!/bin/sh
 
-# Symlink distrobox shims
-./distrobox-shims.sh
+# Symlink toolbox shims
+./toolbox-shims.sh
 
 # Update the container and install packages
 dnf copr enable atim/lazygit -y
