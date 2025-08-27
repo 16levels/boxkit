@@ -2,14 +2,11 @@ age
 asciidoctor
 asciinema
 bat
-emacs-nw
 fastfetch
 fd-find
 fish
 fortune-mod
 fzf
-gcc
-gdb
 gh
 golang
 guile30
@@ -18,7 +15,6 @@ lazygit
 neovim
 nodejs
 opam
-rbw
 restic
 ripgrep
 starship
