@@ -1,4 +1,5 @@
 age
+atuin
 asciidoctor
 asciinema
 bat
@@ -11,6 +12,8 @@ gh
 golang
 guile30
 htop
+hugo
+just
 lazygit
 neovim
 nodejs
