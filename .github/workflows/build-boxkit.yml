@@ -27,9 +27,6 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        platform:
-          - linux/amd64
-          - linux/arm64
         containerfile:
           - alpine
           #- fedora
@@ -50,7 +47,7 @@ jobs:
 
       # Build image using Buildah action
       - name: Build Image
-        id: build_image
+        id: build_image_multiarch
         uses: redhat-actions/buildah-build@7a95fa7ee0f02d552a32753e7414641a04307056 # v2
         with:
           containerfiles: |
@@ -58,6 +55,7 @@ jobs:
           image: ${{ matrix.containerfile }}
           tags: ${{ env.IMAGE_TAGS }}
           labels: ${{ steps.meta.outputs.labels }}
+          archs: amd64, arm64
           oci: true
           
       # Workaround bug where capital letters in your GitHub username make it impossible to push to GHCR.
