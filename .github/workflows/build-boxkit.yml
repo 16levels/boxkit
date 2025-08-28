@@ -1,20 +1,21 @@
+---
 name: build-boxkit
 on:
-  workflow_dispatch: # allow manually triggering builds
+  workflow_dispatch:  # allow manually triggering builds
   pull_request:
     branches:
       - main
   push:
     branches:
       - main
-    paths-ignore: # don't rebuild on documentation change
+    paths-ignore:  # don't rebuild on documentation change
       - '**.md'
   schedule:
     - cron: '0 0 * * TUE'
 
 env:
-    IMAGE_TAGS: latest
-    IMAGE_REGISTRY: ghcr.io/${{ github.repository_owner }}
+  IMAGE_TAGS: latest
+  IMAGE_REGISTRY: ghcr.io/${{ github.repository_owner }}
 
 jobs:
   push-ghcr:
@@ -29,21 +30,27 @@ jobs:
       matrix:
         containerfile:
           - alpine
-          #- fedora
+          # - fedora
     steps:
       # Clone code to runner
       - name: Checkout
-        uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5
+        uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 #  v5
 
       # Build metadata
       - name: Image Metadata
-        uses: docker/metadata-action@c1e51972afc2121e065aed6d45c65596fe445f3f # v5
+        uses: docker/metadata-action@c1e51972afc2121e065aed6d45c65596fe445f3f #  v5
         id: meta
         with:
           images: |
             ${{ matrix.containerfile }}
           labels: |
             io.artifacthub.package.readme-url=https://raw.githubusercontent.com/ublue-os/boxkit/main/README.md
+
+      # Install multi-arch dependency
+      - name: Install qemu dependency
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y qemu-user-static
 
       # Build image using Buildah action
       - name: Build Image
@@ -55,9 +62,9 @@ jobs:
           image: ${{ matrix.containerfile }}
           tags: ${{ env.IMAGE_TAGS }}
           labels: ${{ steps.meta.outputs.labels }}
+          platforms: linux/amd64, linux/arm64
           archs: amd64, arm64
           oci: true
-          
       # Workaround bug where capital letters in your GitHub username make it impossible to push to GHCR.
       # https://github.com/macbre/push-to-ghcr/issues/12
       - name: Lowercase Registry
