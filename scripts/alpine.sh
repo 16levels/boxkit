@@ -6,3 +6,5 @@
 # Update the container and install packages
 apk update && apk upgrade
 grep -v '^#' ./alpine.packages | xargs apk add
+
+rm /etc/machine-id
