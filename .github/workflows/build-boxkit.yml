@@ -62,8 +62,7 @@ jobs:
           image: ${{ matrix.containerfile }}
           tags: ${{ env.IMAGE_TAGS }}
           labels: ${{ steps.meta.outputs.labels }}
-          # platforms: linux/amd64, linux/arm64
-          archs: amd64, arm64
+          platforms: linux/amd64, linux/arm64
           oci: true
       # Workaround bug where capital letters in your GitHub username make it impossible to push to GHCR.
       # https://github.com/macbre/push-to-ghcr/issues/12
