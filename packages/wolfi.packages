@@ -20,6 +20,9 @@ ko
 lazygit
 make
 neovim
+npm
+opam
+python3
 ripgrep
 sqlite
 starship
