@@ -29,8 +29,9 @@ jobs:
       fail-fast: false
       matrix:
         containerfile:
-          - alpine
-          # - fedora
+          # - alpine
+          - fedora
+          - wolfi
     steps:
       # Clone code to runner
       - name: Checkout
