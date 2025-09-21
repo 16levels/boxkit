@@ -1,0 +1,15 @@
+FROM quay.io/toolbx-images/wolfi-toolbox:latest
+
+LABEL com.github.containers.toolbox="true" \
+      usage="This image is meant to be used with the toolbox or distrobox command" \
+      summary="A cloud-native terminal experience" \
+      maintainer="mr@cory.farm"
+
+# Copy the setup scripts and package list
+COPY ../scripts/wolfi.sh /
+COPY ../scripts/toolbox-shims.sh /
+COPY ../packages/wolfi.packages /
+
+# Run the setup scripts
+RUN chmod +x wolfi.sh toolbox-shims.sh && /wolfi.sh
+RUN rm /wolfi.sh /toolbox-shims.sh /wolfi.packages
