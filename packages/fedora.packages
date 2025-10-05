@@ -3,7 +3,6 @@ atuin
 asciidoctor
 asciinema
 bat
-cosign
 direnv
 fastfetch
 fd-find
@@ -17,7 +16,6 @@ guile30
 htop
 hugo
 just
-ko
 lazygit
 neovim
 nodejs
