@@ -20,6 +20,8 @@ lazygit
 neovim
 nodejs
 opam
+p7zip
+p7zip-plugins
 restic
 ripgrep
 speedtest-cli
