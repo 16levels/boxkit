@@ -31,7 +31,7 @@ jobs:
         containerfile:
           # - alpine
           - fedora
-          - wolfi
+          # - wolfi
     steps:
       # Clone code to runner
       - name: Checkout
