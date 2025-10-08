@@ -3,6 +3,7 @@ atuin
 asciidoctor
 asciinema
 bat
+clojure
 dbus-tools
 direnv
 fastfetch
@@ -12,6 +13,7 @@ fortune-mod
 fzf
 gdu
 gh
+glow
 golang
 guile30
 htop
@@ -23,6 +25,7 @@ nodejs
 opam
 restic
 ripgrep
+rustup
 speedtest-cli
 starship
 sqlite
