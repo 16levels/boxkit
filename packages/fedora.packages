@@ -3,6 +3,7 @@ atuin
 asciidoctor
 asciinema
 bat
+dbus-tools
 direnv
 fastfetch
 fd-find
